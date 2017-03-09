@@ -17,26 +17,29 @@ public class CommentServiceImpl implements CommentService{
 	
 	@Override
 	public Comment create(Comment comment) {
-		// TODO Auto-generated method stub
-		return null;
+		Comment commentObj = commentDao.create(comment);
+		return commentObj;
 	}
 
 	@Override
 	public Comment view(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Comment commentObj = commentDao.view(id);
+		
+		return commentObj;
 	}
 
 	@Override
 	public Comment update(Comment comment) {
-		// TODO Auto-generated method stub
-		return null;
+		Comment commentObj = commentDao.update(comment);
+		
+		return commentObj;
 	}
 
 	@Override
 	public List<Comment> list() {
-		// TODO Auto-generated method stub
-		return null;
+		List <Comment> comments = this.commentDao.list();
+		
+		return comments;
 	}
 
 	@Override

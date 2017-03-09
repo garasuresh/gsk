@@ -18,27 +18,36 @@ public class CommentDaoImp implements CommentDao{
 	SessionFactory sessionFactory;
 	
 	@Override
-	public Comment create() {
-		// TODO Auto-generated method stub
-		return null;
+	public Comment create(Comment comment) {
+		this.sessionFactory.getCurrentSession().saveOrUpdate(comment);
+		this.sessionFactory.getCurrentSession().refresh(comment);
+		
+		return comment;
 	}
 
 	@Override
 	public Comment update(Comment comment) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		this.sessionFactory.getCurrentSession().saveOrUpdate(comment);
+		this.sessionFactory.getCurrentSession().refresh(comment);
+		
+		return comment;
 	}
 
 	@Override
 	public List<Comment> list() {
-		// TODO Auto-generated method stub
+		
+		List<Comment> comments = this.sessionFactory.getCurrentSession().createQuery("from comments").list();
+		
 		return null;
 	}
 
 	@Override
 	public Comment view(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Comment comment = (Comment) this.sessionFactory.getCurrentSession().get(Comment.class, id);
+		
+		return comment;
 	}
 
 	@Override
@@ -46,5 +55,4 @@ public class CommentDaoImp implements CommentDao{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

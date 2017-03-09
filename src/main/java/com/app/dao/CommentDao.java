@@ -6,7 +6,7 @@ import com.app.entities.Comment;
 
 public interface CommentDao {
 	
-	public Comment create();
+	public Comment create(Comment comment);
 	
 	public Comment update(Comment comment);
 	

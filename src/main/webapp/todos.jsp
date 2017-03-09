@@ -16,7 +16,7 @@
     
 </head>
 <body>
-<body ng-app = "mainApp">
+<body data-ng-app = "mainApp">
 	<div class="container">
 		<div class="page-header">
 			<h2>TODO'S</h2>
