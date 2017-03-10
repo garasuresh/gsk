@@ -1,10 +1,14 @@
 package com.app.entities;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +32,9 @@ public class ToDo {
 	@Column(name="priority")
 	private String priority;
 
+	@OneToMany(targetEntity=Comment.class, mappedBy = "todo", cascade = CascadeType.ALL)
+	private Set<Comment> comments;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -62,5 +69,13 @@ public class ToDo {
 
 	public void setPriority(String priority) {
 		this.priority = priority;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
 	}
 }
