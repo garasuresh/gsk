@@ -17,7 +17,6 @@ public class ToDoDaoImp implements ToDoDao {
 	@Autowired
 	SessionFactory session;
 	
-	@Override
 	public ToDo create(ToDo todo) {
 		
 		session.getCurrentSession().save(todo);
@@ -26,7 +25,6 @@ public class ToDoDaoImp implements ToDoDao {
 		return todo;
 	}
 
-	@Override
 	public ToDo update(ToDo todo) {
 		session.getCurrentSession().saveOrUpdate(todo);
 		session.getCurrentSession().flush();
@@ -35,20 +33,17 @@ public class ToDoDaoImp implements ToDoDao {
 		return todo;
 	}
 
-	@Override
 	public List<ToDo> list() {
 		List<ToDo> todos=  session.getCurrentSession().createQuery("from ToDo").list();
 		
 		return todos;
 	}
 
-	@Override
 	public boolean delete() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public ToDo view(int id) {
 		// TODO Auto-generated method stub
 		return null;

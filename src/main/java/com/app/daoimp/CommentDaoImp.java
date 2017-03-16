@@ -17,31 +17,26 @@ public class CommentDaoImp implements CommentDao{
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	@Override
 	public Comment create() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Comment update(Comment comment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<Comment> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Comment view(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;

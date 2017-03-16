@@ -15,7 +15,6 @@ public class ToDoServiceImp implements ToDoService{
 	@Autowired
 	ToDoDao todoDao;
 	
-	@Override
 	public List<ToDo> list() {
 		
 		List <ToDo> todos = todoDao.list();
@@ -23,7 +22,6 @@ public class ToDoServiceImp implements ToDoService{
 		return todos;
 	}
 
-	@Override
 	public ToDo create(ToDo todo) {
 		
 		ToDo todoObj = todoDao.create(todo);
@@ -31,21 +29,18 @@ public class ToDoServiceImp implements ToDoService{
 		return todoObj;
 	}
 
-	@Override
 	public ToDo update(ToDo todo) {
 		ToDo todoObj = todoDao.update(todo);
 		
 		return todoObj;
 	}
 
-	@Override
 	public ToDo view(int id) {
 		ToDo todo = todoDao.view(id);
 		
 		return todo;
 	}
 
-	@Override
 	public boolean delete() {
 		// TODO Auto-generated method stub
 		return false;
