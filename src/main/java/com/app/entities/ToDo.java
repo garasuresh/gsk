@@ -1,10 +1,12 @@
 package com.app.entities;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,9 +33,9 @@ public class ToDo {
 	
 	@Column(name="priority")
 	private String priority;
-
-	@OneToMany(targetEntity=Comment.class, mappedBy = "todo", cascade = CascadeType.ALL)
-	private Set<Comment> comments;
+	
+	@OneToMany(mappedBy="todo",fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<Comment> comment = new ArrayList<Comment>();
 	
 	public Integer getId() {
 		return id;
@@ -71,11 +73,11 @@ public class ToDo {
 		this.priority = priority;
 	}
 
-	public Set<Comment> getComments() {
-		return comments;
+	public List<Comment> getComment() {
+		return comment;
 	}
 
-	public void setComments(Set<Comment> comments) {
-		this.comments = comments;
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +45,7 @@ public class ToDoController {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ToDo view(String id) {
+	public @ResponseBody ToDo view(@PathVariable("id") String id) {
 		
 		ToDo todoObj = todoService.view(Integer.parseInt(id));
 		

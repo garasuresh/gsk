@@ -6,7 +6,7 @@ import com.app.entities.Comment;
 
 public interface CommentService {
 	
-	public Comment create(Comment comment);
+	public Comment create(int todo_id, Comment comment);
 	
 	public Comment view(int id);
 	

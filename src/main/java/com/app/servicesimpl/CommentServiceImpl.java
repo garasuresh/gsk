@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.CommentDao;
+import com.app.dao.ToDoDao;
 import com.app.entities.Comment;
+import com.app.entities.ToDo;
 import com.app.servicesapi.CommentService;
 
 @Service
@@ -15,9 +17,17 @@ public class CommentServiceImpl implements CommentService{
 	@Autowired
 	CommentDao commentDao; 
 	
+	@Autowired
+	ToDoDao todoDao;
+	
 	@Override
-	public Comment create(Comment comment) {
+	public Comment create(int todo_id, Comment comment) {
+		
+		ToDo todo = todoDao.view(todo_id);
+		
+		comment.setTodo(todo);
 		Comment commentObj = commentDao.create(comment);
+		
 		return commentObj;
 	}
 

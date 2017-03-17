@@ -50,8 +50,10 @@ public class ToDoDaoImp implements ToDoDao {
 
 	@Override
 	public ToDo view(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ToDo todo = (ToDo) session.getCurrentSession().get(ToDo.class, id);
+		
+		return todo;
 	}
 
 }
